@@ -1,0 +1,80 @@
+<mat-grid-list cols="2" rowHeight="1000px">
+  <mat-grid-tile class="marketing-list">
+    <h1>MARKETING</h1>
+    <mat-form-field appearance="outline">
+      <input
+        matInput
+        placeholder="Search"
+        (keyup)="searchMarketingEmployee($event)"
+        #input
+      />
+    </mat-form-field>
+    <mat-grid-list cols="3">
+      <mat-grid-tile *ngFor="let employee of marketingEmployees">
+        <mat-card class="example-card">
+          <img
+            mat-card-image
+            src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+            alt="Photo"
+          />
+          <mat-card-content>
+            <div
+              class="experience"
+              [ngClass]="{
+                expert: getProficency(employee.created) === 'Expert',
+                senior: getProficency(employee.created) === 'Senior',
+                advanced: getProficency(employee.created) === 'Advanced',
+                experienced: getProficency(employee.created) === 'Esperienced'
+              }"
+            >
+              {{ getProficency(employee.created) }}
+            </div>
+            <h2>
+              {{ employee.name }}
+            </h2>
+            <p>{{ employee.email }}</p>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <h1>DEVELOPMENT</h1>
+    <mat-form-field appearance="outline">
+      <input
+        matInput
+        placeholder="Search"
+        (keyup)="searchDevelopmentEmployee($event)"
+        #input
+      />
+    </mat-form-field>
+    <mat-grid-list cols="3" rowHeight="350px">
+      <mat-grid-tile *ngFor="let employee of developmentEmployees">
+        <mat-card class="example-card">
+          <img
+            mat-card-image
+            src="https://material.angular.io/assets/img/examples/shiba2.jpg"
+            alt="Photo"
+          />
+          <mat-card-content>
+            <div
+              class="experience"
+              [ngClass]="{
+                expert: getProficency(employee.created) === 'Expert',
+                senior: getProficency(employee.created) === 'Senior',
+                advanced: getProficency(employee.created) === 'Advanced',
+                experienced: getProficency(employee.created) === 'Esperienced'
+              }"
+            >
+              {{ getProficency(employee.created) }}
+            </div>
+            <h2>
+              {{ employee.name }}
+            </h2>
+            <p>{{ employee.email }}</p>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </mat-grid-tile>
+</mat-grid-list>

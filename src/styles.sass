@@ -1,1 +1,58 @@
 /* You can add global styles to this file, and also import other style files */
+$main-font-color: grey
+$border-style: 1px solid lightgrey
+$main-background-color: whitesmoke
+
+body
+    background-color: $main-background-color
+
+button,
+mat-button-toggle-group
+    border-radius: 25px
+    .mat-button-toggle
+        background-color: gainsboro !important
+        &.mat-button-toggle-checked
+            background-color: #69f0ae !important
+
+.mat-row
+    min-height: 85px
+tr
+    th
+        border: $border-style
+        font-size: 24px
+
+.table-row
+    background-color: $main-background-color !important
+    td
+        color: $main-font-color
+        font-weight: 500
+        font-size: 16px
+        border: $border-style
+    .mat-form-field
+        width: 90%
+        &.mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick
+            color: #69f0ae !important
+.mat-toolbar
+    padding: 3em 3em 0em 3em
+    background-color: $main-background-color
+.mat-form-field-appearance-outline
+    .mat-form-field-wrapper
+        margin: 0px !important
+        padding: 0px !important
+    .mat-form-field-outline
+        color: grey
+.mat-select-value
+    color: $main-font-color
+.mat-dialog-container
+    background-color: white
+    color: $main-font-color
+    .mat-form-field
+        width: 100%
+        &.mat-focused .mat-form-field-ripple
+            background-color: #69f0ae !important
+        .mat-input-element, .mat-select-disabled .mat-select-value
+            color: $main-font-color
+        .mat-form-field-flex
+            background-color: $main-background-color !important
+        mat-label
+            color: $main-font-color !important

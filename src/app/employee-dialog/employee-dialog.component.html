@@ -1,0 +1,28 @@
+<h1 mat-dialog-title *ngIf="data.toRemove">Remove Row </h1>
+<h1 mat-dialog-title *ngIf="!data.toRemove">Add Row </h1>
+<div mat-dialog-content>
+  <mat-form-field appearance="fill">
+    <mat-label>Name</mat-label>
+    <input matInput [disabled]="data.toRemove" [(ngModel)]="data.employee.name">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>E-mail</mat-label>
+    <input matInput [disabled]="data.toRemove" [(ngModel)]="data.employee.email">
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Department</mat-label>
+    <mat-select [disabled]="data.toRemove" [(ngModel)]="data.employee.department">
+        <mat-option *ngFor="let department of departments" [value]="department.value">
+          {{department.viewValue}}
+        </mat-option>
+      </mat-select>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions *ngIf="data.toRemove">
+  <button mat-button (click)="onCancelClick()">CANCEL</button>
+  <button mat-button color="warn" [mat-dialog-close]="data.employee">REMOVE</button>
+</div>
+<div mat-dialog-actions *ngIf="!data.toRemove">
+  <button mat-button (click)="onCancelClick()">CANCEL</button>
+  <button mat-button color="accent" [mat-dialog-close]="data.employee">SAVE</button>
+</div>
